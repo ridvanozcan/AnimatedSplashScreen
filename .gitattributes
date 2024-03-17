@@ -1,4 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-*.kotlin linguist-detectable=true
+*.kt linguist-detectable=true
 *.* linguist-detectable=false
