@@ -10,37 +10,29 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.animatedsplashscreen.navigation.SetupNavGraph
 import com.example.animatedsplashscreen.ui.theme.AnimatedSplashScreenTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity  : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AnimatedSplashScreenTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+            Content()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun Content() {
+    AnimatedSplashScreenTheme {
+        val navController = rememberNavController()
+        SetupNavGraph(navController = navController)
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    AnimatedSplashScreenTheme {
-        Greeting("Android")
-    }
+fun AnimatedSplashScreenPreview() {
+    Content()
 }
